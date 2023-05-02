@@ -1,5 +1,14 @@
 -- -------------[HackerRank-SQL(Intermediate)-New Companies.sql]-----
 
+SELECT COMPANY_CODE, FOUNDER,
+(SELECT COUNT(DISTINCT LEAD_MANAGER_CODE) FROM LEAD_MANAGER WHERE COMPANY_CODE = C.COMPANY_CODE),
+(SELECT COUNT(DISTINCT SENIOR_MANAGER_CODE) FROM SENIOR_MANAGER WHERE COMPANY_CODE = C.COMPANY_CODE),
+(SELECT COUNT(DISTINCT MANAGER_CODE) FROM MANAGER WHERE COMPANY_CODE = C.COMPANY_CODE),
+(SELECT COUNT(DISTINCT EMPLOYEE_CODE) FROM EMPLOYEE WHERE COMPANY_CODE = C.COMPANY_CODE)
+FROM COMPANY C
+ORDER BY COMPANY_CODE;
+
+/*
 SELECT C.company_code,
        C.founder,
        COUNT(DISTINCT L.lead_manager_code  ),
@@ -16,8 +25,6 @@ ON m.company_code=s.company_code
 JOIN employee e
 ON e.company_code=m.company_code
 GROUP BY c.company_code, c.founder
-ORDER BY company_code, 
-         CASE 
-             WHEN c.company_code REGEXP '^C_[0-9]+$' THEN CAST(SUBSTR(c.company_code, 3) AS UNSIGNED) 
-             ELSE NULL 
-         END;
+ORDER BY company_code; -- How to order by a column having datatype string
+*/
+         
