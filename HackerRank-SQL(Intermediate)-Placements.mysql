@@ -1,5 +1,5 @@
-/* Hackerrank-SQL-Advanced Join-Placements
-Problem Link:-https://www.hackerrank.com/challenges/placements/problem?isFullScreen=true
+--  Hackerrank-SQL-Advanced Join-Placements
+-- Problem Link:-https://www.hackerrank.com/challenges/placements/problem?isFullScreen=true
 
 SELECT s1.name
 FROM friends f
