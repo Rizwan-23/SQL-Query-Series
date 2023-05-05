@@ -1,0 +1,16 @@
+-- [HackerRank-SQL(Intermediate)-The Report.mysql]
+-- Problem Link:https://www.hackerrank.com/challenges/the-report/problem
+
+SELECT 
+    CASE 
+        WHEN g.grade >= 8 THEN s.name
+        ELSE NULL 
+    END AS name,
+    g.grade,
+    s.marks
+FROM 
+    grades g 
+    JOIN students s 
+    ON s.marks BETWEEN g.min_mark AND g.max_mark
+ORDER BY g.grade DESC, name ASC
+
