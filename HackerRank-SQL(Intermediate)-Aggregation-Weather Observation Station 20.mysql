@@ -1,0 +1,9 @@
+-- [HackerRank-SQL(Intermediate)-Aggregation-Weather Observation Station 20]
+-- [https://www.hackerrank.com/challenges/weather-observation-station-20/problem]
+-- [ Platfrom- MySQL ]
+
+SELECT ROUND(S.lat_n, 4) 
+FROM station S 
+WHERE 
+    (SELECT COUNT(lat_n) FROM station WHERE lat_n> S.lat_n) 
+    = (SELECT COUNT(lat_n) FROM station WHERE lat_n< S.lat_n);
